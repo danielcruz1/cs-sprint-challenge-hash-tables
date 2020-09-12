@@ -1,11 +1,25 @@
+def value_in_all_dicts(value, dicts):
+        for dict in dicts:
+            if value not in dict:
+                return False
+
+        return True
+
+
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
+   
     # Your code here
+    if len(arrays) == 0:
+        return []
 
-    return result
-
+    results = {}
+    for nums in arrays:
+        for num in nums:
+            if num in results:
+                results[num] += 1
+            else:
+                results[num] = 1
+    return [num for (num, result) in results.items() if result == len(arrays)]
 
 if __name__ == "__main__":
     arrays = []
